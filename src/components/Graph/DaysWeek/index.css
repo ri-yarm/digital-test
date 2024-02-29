@@ -1,0 +1,15 @@
+.containerDays {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    margin-right: 6px;
+}
+
+.days {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #959494;
+}

@@ -2,6 +2,8 @@ import React from "react";
 import "./index.css";
 import { getColor } from "lib/functions/getColor.ts";
 import { getTitle } from "lib/functions/getTitle.ts";
+import Months from "components/Graph/Months";
+import DaysWeek from "components/Graph/DaysWeek";
 
 interface GraphData {
   [date: string]: number;
@@ -55,7 +57,11 @@ const Graph = ({ data }: GraphProps) => {
 
   return (
     <div className={"container"}>
-      <div className="graph">{weeks}</div>
+      <Months />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <DaysWeek />
+        <div className="graph">{weeks}</div>
+      </div>
     </div>
   );
 };
