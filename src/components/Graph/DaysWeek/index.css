@@ -1,15 +1,17 @@
 .containerDays {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 
-    margin-right: 6px;
+  height: 115px;
+
+  margin-right: 6px;
 }
 
 .days {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
 
-    color: #959494;
+  color: #959494;
 }

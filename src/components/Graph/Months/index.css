@@ -1,13 +1,13 @@
 .containerMonths {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .month {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14.5px;
-    color: #959494;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.5px;
+  color: #959494;
 }

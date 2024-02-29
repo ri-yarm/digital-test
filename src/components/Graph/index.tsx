@@ -4,6 +4,7 @@ import { getColor } from "lib/functions/getColor.ts";
 import { getTitle } from "lib/functions/getTitle.ts";
 import Months from "components/Graph/Months";
 import DaysWeek from "components/Graph/DaysWeek";
+import Palette from "components/Graph/Palette";
 
 interface GraphData {
   [date: string]: number;
@@ -60,7 +61,10 @@ const Graph = ({ data }: GraphProps) => {
       <Months />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <DaysWeek />
-        <div className="graph">{weeks}</div>
+        <div>
+          <div className="graph">{weeks}</div>
+          <Palette />
+        </div>
       </div>
     </div>
   );
