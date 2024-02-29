@@ -12,29 +12,38 @@ interface GraphProps {
 }
 
 const Graph = ({ data }: GraphProps) => {
-  const daysInYear = Array.from({ length: 365 }, () => 0);
+  const daysInYear = Array(365).fill(0);
 
   const weeks = [];
-  const StartDate = new Date("2022-10-01");
+  // Получаю первую дату из моков и от этого дня в неделе начинается отсчёт коммитов
+  const firstDate = Object.keys(data)[0];
+  let startDate = new Date(firstDate);
+
+  // Внимание, день недели начинается с ВОСКРЕСЕНЬЯ. Как у самого гитхаба
+  startDate = new Date(
+    startDate.setDate(startDate.getDate() - startDate.getDay()),
+  );
 
   for (let i = 0; i < daysInYear.length; i += 7) {
     const daysInWeek = [];
 
     for (let j = 0; j < 7; j++) {
-      const dateString = StartDate.toISOString().split("T")[0];
+      const dateString = startDate.toISOString().split("T")[0];
       const count = data[dateString] || 0;
+
       const color = getColor(count);
+      const title = getTitle(dateString, count);
 
       daysInWeek.push(
         <div
           key={dateString}
           className="contribution-point"
           style={{ backgroundColor: color }}
-          title={getTitle(dateString, count)}
+          title={title}
         />,
       );
 
-      StartDate.setDate(StartDate.getDate() + 1);
+      startDate.setDate(startDate.getDate() + 1);
     }
 
     weeks.push(

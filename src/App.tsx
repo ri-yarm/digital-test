@@ -5,6 +5,7 @@ import Graph from "components/Graph";
 
 const App = () => {
   const [data, setData] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -12,6 +13,7 @@ const App = () => {
         const response = await axiosProject.get("");
         setData(response.data);
       } catch (error) {
+        setIsError(true);
         console.error("Ошибка получения моковых данных", error);
       }
     })();
@@ -20,6 +22,7 @@ const App = () => {
   return (
     <div style={{ color: "red" }}>
       {!data ? <p>loading</p> : <Graph data={data} />}
+      {isError && <p>ошибка получения моковых данных</p>}
     </div>
   );
 };
