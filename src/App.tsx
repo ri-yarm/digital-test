@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { axiosProject } from "lib/http";
+import Graph from "components/Graph";
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -18,7 +19,7 @@ const App = () => {
 
   return (
     <div style={{ color: "red" }}>
-      {data ? <pre>{JSON.stringify(data, null)}</pre> : "Loading..."}
+      {!data ? <p>loading</p> : <Graph data={data} />}
     </div>
   );
 };
